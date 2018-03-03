@@ -9,12 +9,15 @@ import { Provider, inject } from 'mobx-react/native'
 import { autorun, useStrict } from 'mobx'
 import RootNavigator from './src/scene/navigators/root-navigator'
 import createNavigationContainer from './src/utils/create-navigation-container'
+import withOneSignal from './src/hocs/with-onesignal'
 import stores from './src/stores'
 
 
 useStrict(true)
 stores.nav.setNavigator(RootNavigator)
-const AppNavigationMobx = createNavigationContainer(RootNavigator)
+const AppNavigationMobx = withOneSignal(
+  createNavigationContainer(RootNavigator)
+)
 
 export default () => (
   <Provider {...stores}>
