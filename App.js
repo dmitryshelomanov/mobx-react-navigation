@@ -15,9 +15,9 @@ import stores from './src/stores'
 
 useStrict(true)
 stores.nav.setNavigator(RootNavigator)
-const AppNavigationMobx = withOneSignal(
-  createNavigationContainer(RootNavigator)
-)
+
+const AppWithOneSignal = withOneSignal(RootNavigator)
+const AppNavigationMobx = createNavigationContainer(AppWithOneSignal)
 
 export default () => (
   <Provider {...stores}>

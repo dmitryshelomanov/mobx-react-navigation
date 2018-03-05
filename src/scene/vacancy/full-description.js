@@ -4,9 +4,6 @@ import {
 } from 'react-native'
 
 
-export default ({ navigation }) => {
-  setTimeout(() => navigation.navigate('Report'), 500)
-  return  (
-    <Text>Vacancy full descriptions</Text>
-  ) 
-} 
+export default ({ navigation }) => (
+  <Text>Vacancy full descriptions</Text>
+)

@@ -11,10 +11,6 @@ export default (Component) => {
   @back
   @observer
   class NavigationContainer extends React.Component {
-    static defaultProps = {
-      nav: null,
-    };
-
     @autobind
     backButtonPressed() {
       const { nav } = this.props
@@ -27,7 +23,7 @@ export default (Component) => {
     }
 
     getNavigation = () => {
-      const { nav, ...rest } = this.props
+      const { nav } = this.props
 
       return addNavigationHelpers({
         dispatch: nav.dispatchNavigation,
@@ -38,7 +34,10 @@ export default (Component) => {
     }
     render() {
 
-      return <Component navigation={this.getNavigation()} />
+      return <Component
+        navigation={this.getNavigation()}
+        screenProps={{ ...this.props }}
+      />
     }
   }
   return NavigationContainer
