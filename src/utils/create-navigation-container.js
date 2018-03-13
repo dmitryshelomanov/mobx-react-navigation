@@ -26,12 +26,12 @@ export default (Component) => {
       return addNavigationHelpers({
         dispatch: nav.dispatchNavigation,
         state: nav.navigationState,
+        test: 1,
         addListener: () => {},
       })
 
     }
     render() {
-
       return <Component
         navigation={this.getNavigation()}
         screenProps={{ ...this.props }}
