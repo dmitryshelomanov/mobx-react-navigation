@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { inject } from 'mobx-react/native'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, NavigationActions } from 'react-navigation'
 
 export default {
   VacancyFlow: {
@@ -15,6 +15,9 @@ export default {
           <View>
             <TouchableOpacity onPress={() => nav.navigate('Vacancy', { visible: false }) }>
               <Text>VcancyList</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => nav.navigate('LoginFlow') }>
+              <Text>CodeSend</Text>
             </TouchableOpacity>
           </View>
         )),

@@ -9,7 +9,7 @@ import { inject } from 'mobx-react/native'
 
 export default inject('nav')(({ nav }) => (
   <View>
-    <TouchableOpacity onPress={() => nav.navigate('TestScreen') }>
+    <TouchableOpacity onPress={() => nav.multyNavigate(['DrawerClose', 'TestFlow'])}>
       <Text>to TestFlow</Text>
     </TouchableOpacity>
   </View>

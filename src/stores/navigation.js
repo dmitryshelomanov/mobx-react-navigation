@@ -34,7 +34,6 @@ class NavigationStore {
   @action.bound
   dispatchNavigation(routerAction, reset) {
     const previousNavState = reset ? null : this.navigationState
-
     if (this.router) {
       const newState = this.router.getStateForAction(routerAction, previousNavState)
 
@@ -71,14 +70,14 @@ class NavigationStore {
     const resetAction = NavigationActions.navigate({
       routeName,
       params,
-      actions: navAction,
+      action: navAction,
     })
 
     return this.dispatchNavigation({
       type: NavigationActions.RESET,
       actions: [resetAction],
       index: 0,
-    }, true)
+    })
   }
 
   @autobind
@@ -94,6 +93,13 @@ class NavigationStore {
         action: navAction,
       }),
     )
+  }
+
+  @autobind
+  multyNavigate(routes = []) {
+    for (let i = 0; i < routes.length; i++) {
+      this.navigate(routes[i])
+    }
   }
 
   @autobind

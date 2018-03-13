@@ -21,8 +21,8 @@ import FeedbackFlow from './feedback'
 
 
 const TabMain = TabNavigator({
-    ...VacancyFlow,
-    ...FeedbackFlow,
+  ...VacancyFlow,
+  ...FeedbackFlow,
 }, TabNavigationOptions)
 
 export default StackNavigator({
@@ -30,26 +30,24 @@ export default StackNavigator({
     screen: LoginFlow,
   },
   MainFlow: {
-    screen: DrawerNavigator({
-      TabsMain: {
-        screen: TabMain,
+    screen: StackNavigator({
+      Drawer: {
+        screen: DrawerNavigator({
+          Tabs: { screen: TabMain },
+        }, DrawerOptions),
+        navigationOptions: {
+          header: null,
+        },
       },
       TestFlow: {
-        screen: StackNavigator({
-          TestScreen: {
-            screen: () => (
-              <View>
-                <TouchableOpacity>
-                  <Text>TestScreen</Text>
-                </TouchableOpacity>
-              </View>
-            ),
-            navigationOptions: {
-              title: 'TestScreen',
-            },
-          },
-        }),
+        screen: () => (
+          <View>
+            <TouchableOpacity>
+              <Text>TestScreen</Text>
+            </TouchableOpacity>
+          </View>
+        ),
       },
-    }, DrawerOptions),
+    }),
   },
 }, { headerMode: 'none' })
