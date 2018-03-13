@@ -1,17 +1,13 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import DrawerNavigator from './drawer-navigator'
+import CreateScene from '../create-scene'
 
-import LoginScene from '../login'
-import FaqScene from '../faq'
 
 const scenes = {
-  Login: { screen: LoginScene },
-  Faq: { screen: FaqScene },
-  Main: { screen: DrawerNavigator },
+  root1: { screen: (props) => <CreateScene text={'root1'} {...props} /> },
+  root2: { screen: (props) => <CreateScene text={'root2'} {...props} /> },
+  root3: { screen: (props) => <CreateScene text={'root3'} {...props} /> },
 }
 
-const configs = {
-  initialRouteName: 'Main',
-}
-
-export default StackNavigator(scenes, configs)
+export default StackNavigator(scenes)

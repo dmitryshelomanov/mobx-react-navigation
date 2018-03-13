@@ -2,7 +2,6 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { addNavigationHelpers } from 'react-navigation'
 import { inject, observer } from 'mobx-react/native'
-import autobind from 'autobind-decorator'
 import back from './handle-back-button'
 import getCurrentState from '../utils/get-navigation-state'
 
@@ -11,8 +10,7 @@ export default (Component) => {
   @back
   @observer
   class NavigationContainer extends React.Component {
-    @autobind
-    backButtonPressed() {
+    backButtonPressed = () => {
       const { nav } = this.props
       const result = !!nav.goBack()
 

@@ -1,21 +1,42 @@
 import React from 'react'
-import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation'
-import VacansyScreen from '../vacancy'
-import ReportScreen from '../report'
+import { TabNavigator, StackNavigator, TabBarBottom, TabBarTop } from 'react-navigation'
 import { View, Text } from 'react-native'
-import WithComponentHide from '../../hocs/with-component-hide'
+import CreateScene from '../create-scene'
 
 
 const scenes = {
-  Report: { screen: ReportScreen, path: '' },
-  Vacansy: { screen: VacansyScreen, path: 'vacancy' },
+  Tab1: {
+    screen: (props) => (
+      <View {...props}>
+        <Text>1</Text>
+      </View>
+    )
+  },
+  Tab2: {
+    screen: (props) => (
+      <View  {...props}>
+        <Text>2</Text>
+      </View>
+    ),
+  },
+  // tab3: {
+  //   screen: StackNavigator({
+  //     tab3stack1: { screen: (props) => <CreateScene text={'tab3-stack1'} {...props} /> },
+  //     tab3stack2: { screen: (props) => <CreateScene text={'tab3-stack2'} {...props} /> },
+  //   }),
+  // },
+  // menu: {
+  //   screen: StackNavigator({
+  //     menustack1: { screen: (props) => <CreateScene text={'menu-stack1'} {...props} /> },
+  //     menustack2: { screen: (props) => <CreateScene text={'menu-stack2'} {...props} /> },
+  //   }),
+  // },
 }
 
 const configs = {
-  initialRouteName: 'Report',
   tabBarPosition: 'bottom',
   lazy: true,
-  tabBarComponent: WithComponentHide(TabBarBottom),
+  // tabBarComponent: TabBarTop,
 }
 
 export default TabNavigator(scenes, configs)
