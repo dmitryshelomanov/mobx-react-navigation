@@ -1,3 +1,9 @@
+import React from 'react'
+import {
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native'
 import {
   StackNavigator,
   TabNavigator,
@@ -27,6 +33,22 @@ export default StackNavigator({
     screen: DrawerNavigator({
       TabsMain: {
         screen: TabMain,
+      },
+      TestFlow: {
+        screen: StackNavigator({
+          TestScreen: {
+            screen: () => (
+              <View>
+                <TouchableOpacity>
+                  <Text>TestScreen</Text>
+                </TouchableOpacity>
+              </View>
+            ),
+            navigationOptions: {
+              title: 'TestScreen',
+            },
+          },
+        }),
       },
     }, DrawerOptions),
   },
